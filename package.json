@@ -1,21 +1,37 @@
 {
-  "name": "my-app",
+  "name": "house-inventory",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001",
   "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/icons-material": "^5.11.11",
+    "@mui/material": "^5.11.13",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^29.4.4",
+    "@types/node": "^18.15.3",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "lodash-es": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.43.7",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "typescript": "^4.9.5",
+    "web-vitals": "^2.1.4",
+    "express": "^4.18.2",
+    "mysql": "^2.18.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts start --no-open",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build-server": "tsc --project src/server/tsconfig.server.json",
+    "start-server": "node dist/server/index.js"
   },
   "eslintConfig": {
     "extends": [
@@ -34,5 +50,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/lodash-es": "^4.17.7",
+    "@types/mysql": "^2.15.21"
   }
 }
