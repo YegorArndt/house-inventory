@@ -11,7 +11,7 @@ export const addItem = async (req: Request, res: Response) => {
     )
     res.json({ message: `Item '${itemName}' inserted successfully` })
   } catch (error) {
-    res.status(500).json({ message: error.message })
+    res.status(500).json({ message: error })
   }
 }
 
@@ -34,6 +34,6 @@ export const updateItem = async (req: Request, res: Response) => {
     )
     res.json({ message: `Item '${oldItemName}' updated successfully` })
   } catch (error) {
-    res.status(500).json({ message: error.message })
+    res.status(500).json({ message: error })
   }
 }

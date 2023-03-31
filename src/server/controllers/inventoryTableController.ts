@@ -13,7 +13,7 @@ export const addInventoryTable = async (req: Request, res: Response) => {
       message: `Inventory table '${tableName}' inserted successfully`,
     })
   } catch (error) {
-    res.status(500).json({ message: error.message })
+    res.status(500).json({ message: error })
   }
 }
 
@@ -30,6 +30,6 @@ export const updateInventoryTable = async (req: Request, res: Response) => {
       message: `Inventory table '${oldTableName}' updated successfully`,
     })
   } catch (error) {
-    res.status(500).json({ message: error.message })
+    res.status(500).json({ message: error })
   }
 }

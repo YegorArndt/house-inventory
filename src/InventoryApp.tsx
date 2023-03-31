@@ -120,9 +120,13 @@ const HouseAreaHeader: React.FC<{ name: string }> = ({ name }) => {
   )
 }
 
-const TableRow: React.FC<
-  ITableRow & { onSave: React.Dispatch<React.SetStateAction<ITableRow[]>> }
-> = ({ itemName, quantity, daysToUseUp = 0, price = 0, onSave }) => {
+type TableRowProps = {
+  onSave: React.Dispatch<React.SetStateAction<ITableRow[]>>
+} & ITableRow
+
+const TableRow = (props: TableRowProps) => {
+  const { itemName, quantity, daysToUseUp = 0, price = 0, onSave } = props
+
   const {
     register,
     handleSubmit,
@@ -171,7 +175,7 @@ const TableRow: React.FC<
                 pattern: index === 0 ? /\w/ : /^[0-9]+$/,
               })}
             />
-            {errors[entry[0]] && (
+            {errors[entry[0] as keyof ITableRow] && (
               <Box position='absolute' color='red' whiteSpace='nowrap'>
                 Check out this field
               </Box>

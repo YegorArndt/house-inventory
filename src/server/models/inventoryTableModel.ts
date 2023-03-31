@@ -1,14 +1,14 @@
-import db from '../db'
+import { runQuery } from '../db'
 
 export const getAllInventoryTables = async () => {
-  return db.query('SELECT * FROM inventoryTables')
+  return runQuery('SELECT * FROM inventoryTables')
 }
 
 export const addInventoryTable = async (
   tableName: string,
   houseAreaName: string
 ) => {
-  return db.query(
+  return runQuery(
     'INSERT INTO inventoryTables (name, houseAreaName) VALUES (?, ?)',
     [tableName, houseAreaName]
   )
@@ -19,7 +19,7 @@ export const updateInventoryTable = async (
   newTableName: string,
   newHouseAreaName: string
 ) => {
-  return db.query(
+  return runQuery(
     'UPDATE inventoryTables SET name = ?, houseAreaName = ? WHERE name = ?',
     [newTableName, newHouseAreaName, oldTableName]
   )

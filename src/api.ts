@@ -17,7 +17,7 @@ const fetcher = async (
     const data = await response.json()
     return data
   } catch (error) {
-    console.error(error.message)
+    console.error(error)
     throw error
   }
 }

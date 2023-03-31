@@ -6,7 +6,7 @@ export const getAllHouseAreas = async (req: Request, res: Response) => {
     const houseAreas = await runQuery('SELECT * FROM houseAreas')
     res.json(houseAreas)
   } catch (error) {
-    res.status(500).json({ message: error.message })
+    res.status(500).json({ message: error })
   }
 }
 
@@ -17,7 +17,7 @@ export const addHouseArea = async (req: Request, res: Response) => {
     await runQuery('INSERT INTO houseAreas (name) VALUES (?)', [areaName])
     res.json({ message: `House area '${areaName}' inserted successfully` })
   } catch (error) {
-    res.status(500).json({ message: error.message })
+    res.status(500).json({ message: error })
   }
 }
 
@@ -34,6 +34,6 @@ export const updateHouseArea = async (req: Request, res: Response) => {
       message: `House area '${oldName}' updated to '${newName}' successfully`,
     })
   } catch (error) {
-    res.status(500).json({ message: error.message })
+    res.status(500).json({ message: error })
   }
 }
